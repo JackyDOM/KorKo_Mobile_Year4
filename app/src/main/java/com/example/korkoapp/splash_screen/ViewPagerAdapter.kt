@@ -37,8 +37,8 @@ class ViewPagerAdapter(private val context: Context) : PagerAdapter() {
         return headings.size
     }
 
-    override fun isViewFromObject(view: View, `object`: Any): Boolean {
-        return view == object as LinearLayout
+    override fun isViewFromObject(@NonNull view: View, @NonNull obj: Any): Boolean {
+        return view == obj as LinearLayout
     }
 
     @NonNull
