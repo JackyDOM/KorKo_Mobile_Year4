@@ -59,5 +59,6 @@ dependencies {
 
     // ViewModel library
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
 
 }
