@@ -10,13 +10,14 @@ import android.widget.TextView
 import androidx.annotation.NonNull
 import androidx.viewpager.widget.PagerAdapter
 import com.example.korkoapp.R
+import de.hdodenhof.circleimageview.CircleImageView
 
 class ViewPagerAdapter(private val context: Context) : PagerAdapter() {
     private val images = intArrayOf(
-        R.drawable.image3,
-        R.drawable.image4,
-        R.drawable.image5,
-        R.drawable.image6
+        R.drawable.food,
+        R.drawable.beach,
+        R.drawable.temple,
+        R.drawable.cafe
     )
 
     private val headings = intArrayOf(
@@ -46,7 +47,7 @@ class ViewPagerAdapter(private val context: Context) : PagerAdapter() {
         val layoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view = layoutInflater.inflate(R.layout.slider_layout, container, false)
 
-        val slideTitleImage = view.findViewById<ImageView>(R.id.titleImage)
+        val slideTitleImage = view.findViewById<CircleImageView>(R.id.titleImage)
         val slideHeading = view.findViewById<TextView>(R.id.texttitle)
         val slideDescription = view.findViewById<TextView>(R.id.textdeccription)
 
