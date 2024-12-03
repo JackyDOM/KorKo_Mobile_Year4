@@ -13,7 +13,7 @@ class BannerAdapter: ListAdapter<DataBanner, BannerAdapter.BannerViewHolder>(Ban
     class BannerViewHolder(private var binding: ViewHolderBannerBinding): RecyclerView.ViewHolder(binding.root) {
         fun bindDataBanner(dataBanner: DataBanner){
             Picasso.get().load(dataBanner.image_banner).into(binding.bannerImage)
-            binding.txtTitle.text = "Title: ${dataBanner.name}"
+            binding.txtTitle.text = "${dataBanner.name}"
         }
     }
 

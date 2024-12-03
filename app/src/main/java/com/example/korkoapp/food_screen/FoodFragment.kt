@@ -1,6 +1,7 @@
 package com.example.korkoapp.food_screen
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -40,9 +41,15 @@ class FoodFragment : Fragment() {
         }
 
         viewModel.dataState.observe(viewLifecycleOwner){ dataState ->
-            when(dataState.state){
-                State.SUCCESS -> bannerAdapter.submitList(dataState.data)
-                State.ERROR -> Toast.makeText(context, "Error loading data. Please try again.", Toast.LENGTH_SHORT).show()
+            when (dataState.state) {
+                State.SUCCESS -> {
+                    Log.d("FoodFragment", "Data loaded successfully: ${dataState.data}")
+                    bannerAdapter.submitList(dataState.data)
+                }
+                State.ERROR -> {
+                    Log.e("FoodFragment", "Error loading data: ${dataState.errorMessage}")
+                    Toast.makeText(context, "Error loading data. Please try again.", Toast.LENGTH_SHORT).show()
+                }
             }
         }
 
