@@ -11,15 +11,19 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.korkoapp.R
 import com.example.korkoapp.adapter.BannerAdapter
+import com.example.korkoapp.adapter.DishAdapter
 import com.example.korkoapp.api.State
 import com.example.korkoapp.databinding.FragmentFoodBinding
 import com.example.korkoapp.databinding.ViewHolderBannerBinding
 import com.example.korkoapp.viewmodel.BannerViewModel
+import com.example.korkoapp.viewmodel.DishViewModel
 
 class FoodFragment : Fragment() {
     private val viewModel by viewModels<BannerViewModel>()
+    private val viewModelDish by viewModels<DishViewModel>()
     private lateinit var binding: FragmentFoodBinding
     private lateinit var bannerAdapter: BannerAdapter
+    private lateinit var dishAdapter: DishAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,10 +38,16 @@ class FoodFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         bannerAdapter = BannerAdapter()
+        dishAdapter = DishAdapter()
 
         binding.recycleViewBanner.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             adapter = bannerAdapter
+        }
+
+        binding.recycleViewDish.apply {
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            adapter = dishAdapter
         }
 
         viewModel.dataState.observe(viewLifecycleOwner){ dataState ->
@@ -53,6 +63,20 @@ class FoodFragment : Fragment() {
             }
         }
 
+        viewModelDish.datstate.observe(viewLifecycleOwner){ dataState ->
+            when(dataState.state){
+                State.SUCCESS -> {
+                    dishAdapter.submitList(dataState.data)
+                }
+                State.ERROR -> {
+                    Toast.makeText(context, "Error loading data. Please try again.", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+        }
+
         viewModel.loadData()
+        viewModelDish.loadDataDish()
+
     }
 }
