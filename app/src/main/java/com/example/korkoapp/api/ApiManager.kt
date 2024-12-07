@@ -1,5 +1,6 @@
 package com.example.korkoapp.api
 
+import com.example.korkoapp.globle.AppConstant
 import com.example.korkoapp.service.DataService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -20,7 +21,7 @@ class ApiManager private constructor() {
         .build()
 
     private val retrofit = Retrofit.Builder()
-        .baseUrl("http://192.168.43.90:35174")
+        .baseUrl(AppConstant.BASE_URL)
         .client(httpClient)
         .addConverterFactory(GsonConverterFactory.create())
         .build()

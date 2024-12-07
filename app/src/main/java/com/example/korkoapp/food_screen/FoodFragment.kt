@@ -11,19 +11,27 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.korkoapp.R
 import com.example.korkoapp.adapter.BannerAdapter
+import com.example.korkoapp.adapter.DessertAdapter
 import com.example.korkoapp.adapter.DishAdapter
+import com.example.korkoapp.adapter.SoupAdapter
 import com.example.korkoapp.api.State
 import com.example.korkoapp.databinding.FragmentFoodBinding
 import com.example.korkoapp.databinding.ViewHolderBannerBinding
 import com.example.korkoapp.viewmodel.BannerViewModel
+import com.example.korkoapp.viewmodel.DessertViewModel
 import com.example.korkoapp.viewmodel.DishViewModel
+import com.example.korkoapp.viewmodel.SoupViewModel
 
 class FoodFragment : Fragment() {
     private val viewModel by viewModels<BannerViewModel>()
     private val viewModelDish by viewModels<DishViewModel>()
+    private val viewModelDessert by viewModels<DessertViewModel>()
+    private val viewModelSoup by viewModels<SoupViewModel>()
     private lateinit var binding: FragmentFoodBinding
     private lateinit var bannerAdapter: BannerAdapter
     private lateinit var dishAdapter: DishAdapter
+    private lateinit var dessertAdapter: DessertAdapter
+    private lateinit var soupAdapter: SoupAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,6 +47,8 @@ class FoodFragment : Fragment() {
 
         bannerAdapter = BannerAdapter()
         dishAdapter = DishAdapter()
+        dessertAdapter = DessertAdapter()
+        soupAdapter = SoupAdapter()
 
         binding.recycleViewBanner.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
@@ -48,6 +58,16 @@ class FoodFragment : Fragment() {
         binding.recycleViewDish.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             adapter = dishAdapter
+        }
+
+        binding.recycleViewDessert.apply {
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            adapter = dessertAdapter
+        }
+
+        binding.recycleViewSoup.apply {
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            adapter = soupAdapter
         }
 
         viewModel.dataState.observe(viewLifecycleOwner){ dataState ->
@@ -72,11 +92,35 @@ class FoodFragment : Fragment() {
                     Toast.makeText(context, "Error loading data. Please try again.", Toast.LENGTH_SHORT).show()
                 }
             }
+        }
+
+        viewModelDessert.dataState.observe(viewLifecycleOwner){ dataState ->
+            when(dataState.state){
+                State.SUCCESS -> {
+                    dessertAdapter.submitList(dataState.data)
+                }
+                State.ERROR -> {
+                    Toast.makeText(context, "Error loading data. Please try again.", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
+        viewModelSoup.dataState.observe(viewLifecycleOwner){ dataState ->
+            when(dataState.state){
+                State.SUCCESS -> {
+                    soupAdapter.submitList(dataState.data)
+                }
+                State.ERROR -> {
+                    Toast.makeText(context, "Error loading data. Please try again.", Toast.LENGTH_SHORT).show()
+                }
+            }
 
         }
 
         viewModel.loadData()
         viewModelDish.loadDataDish()
+        viewModelDessert.loadDataDessert()
+        viewModelSoup.loadDataSoup()
 
     }
 }

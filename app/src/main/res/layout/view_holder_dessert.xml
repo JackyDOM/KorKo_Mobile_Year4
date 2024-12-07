@@ -18,7 +18,7 @@
 
         <ImageView
             android:padding="8dp"
-            android:id="@+id/DishImage"
+            android:id="@+id/DessertImage"
             android:layout_width="170dp"
             android:layout_height="150dp"
             android:layout_gravity="center_horizontal"
@@ -26,11 +26,12 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginTop="20dp"
-            android:scaleType="centerCrop"/>
+            app:civ_border_color="#E4B7A0"
+            app:civ_border_width="3dp"/>
 
         <TextView
             android:layout_marginTop="15dp"
-            android:id="@+id/txtDishTittle"
+            android:id="@+id/txtDessertTittle"
             android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -42,7 +43,4 @@
             android:layout_marginBottom="10dp"/>
 
     </LinearLayout>
-
-
-
 </LinearLayout>

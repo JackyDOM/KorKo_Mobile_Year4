@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_marginTop="10dp"
-        android:background="@drawable/dish_rounded"
+        android:background="@drawable/sea_rounded"
         android:padding="5dp"
         android:layout_marginBottom="8dp"
         android:orientation="vertical"
@@ -18,7 +18,7 @@
 
         <ImageView
             android:padding="8dp"
-            android:id="@+id/DishImage"
+            android:id="@+id/SeaImage"
             android:layout_width="170dp"
             android:layout_height="150dp"
             android:layout_gravity="center_horizontal"
@@ -30,7 +30,7 @@
 
         <TextView
             android:layout_marginTop="15dp"
-            android:id="@+id/txtDishTittle"
+            android:id="@+id/txtSeaTittle"
             android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
             android:fontFamily="sans-serif-condensed-light"
             android:textSize="15sp"
             android:textStyle="bold"
-            android:textColor="#B25A0D"
+            android:textColor="#073256"
             android:layout_marginBottom="10dp"/>
 
     </LinearLayout>
