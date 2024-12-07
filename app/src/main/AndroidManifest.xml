@@ -16,10 +16,10 @@
         android:theme="@style/Theme.KorkoApp"
         tools:targetApi="31">
         <activity
-            android:name=".buttonNavigationBar_Screen.MainActivityButtonNavBar"
+            android:name=".ui.element.Activity.MainActivityButtonNavBar"
             android:exported="false" />
         <activity
-            android:name=".splash_screen.SplashScreenActivity"
+            android:name=".ui.splash_screen.SplashScreenActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

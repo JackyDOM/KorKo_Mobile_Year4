@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_marginTop="20dp"
-        tools:context=".sea_screen.SeaFragment">
+        tools:context=".ui.element.Fragment.SeaFragment">
 
         <LinearLayout
             android:layout_marginTop="25dp"
@@ -24,7 +24,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Food Receipt"
+                android:text="Beach Receipt"
                 android:textColor="#0B3C73"
                 android:textSize="30dp"
                 android:textStyle="bold"/>

@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.korkoapp.adapter.DishAdapter.DishViewHolder
 import com.example.korkoapp.databinding.ViewHolderSoupBinding
 import com.example.korkoapp.databinding.ViewHolerDishBinding
-import com.example.korkoapp.model.Data
+import com.example.korkoapp.data.model.Data
 import com.squareup.picasso.Picasso
 
 class SoupAdapter: ListAdapter<Data, SoupAdapter.SoupViewHolder>(SoupDiffCallback()) {

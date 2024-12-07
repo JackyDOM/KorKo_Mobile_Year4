@@ -10,7 +10,7 @@
         android:orientation="vertical"
         android:layout_marginTop="20dp"
         android:layout_height="match_parent"
-        tools:context=".food_screen.FoodFragment">
+        tools:context=".ui.element.Fragment.FoodFragment">
 
         <LinearLayout
             android:layout_marginTop="25dp"

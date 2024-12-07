@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.korkoapp.adapter.DishAdapter.DishViewHolder
 import com.example.korkoapp.databinding.ViewHolderSeaBinding
 import com.example.korkoapp.databinding.ViewHolerDishBinding
-import com.example.korkoapp.model.DataSea
+import com.example.korkoapp.data.model.DataSea
 import com.squareup.picasso.Picasso
 
 class SeaAdapter: ListAdapter<DataSea, SeaAdapter.SeaViewHolder>(SeaDiffUtil()) {

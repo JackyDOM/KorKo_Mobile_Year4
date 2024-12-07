@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:gravity="center"
-    tools:context=".splash_screen.SplashScreenActivity">
+    tools:context=".ui.splash_screen.SplashScreenActivity">
 
     <Button
         android:layout_marginRight="15dp"

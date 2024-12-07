@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.korkoapp.databinding.ViewHolerDishBinding
-import com.example.korkoapp.model.Data
+import com.example.korkoapp.data.model.Data
 import com.squareup.picasso.Picasso
 
 class DishAdapter:  ListAdapter<Data, DishAdapter.DishViewHolder>(DishDiffCallback()){

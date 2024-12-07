@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.korkoapp.databinding.ViewHolderBannerBinding
-import com.example.korkoapp.model.DataBanner
+import com.example.korkoapp.data.model.DataBanner
 import com.squareup.picasso.Picasso
 
 class BannerAdapter: ListAdapter<DataBanner, BannerAdapter.BannerViewHolder>(BannerDiffCallback()) {

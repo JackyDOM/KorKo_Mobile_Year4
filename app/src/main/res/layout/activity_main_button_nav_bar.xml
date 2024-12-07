@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".buttonNavigationBar_Screen.MainActivityButtonNavBar">
+    tools:context=".ui.element.Activity.MainActivityButtonNavBar">
 
     <FrameLayout
         android:id="@+id/frameLayout"
@@ -18,13 +18,14 @@
         android:id="@+id/bottomNaviView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/buttonnav_rounded"
-        app:menu="@menu/bottom_nav_menu"
-        app:labelVisibilityMode="labeled"
-        android:padding="1dp"
         android:layout_alignParentBottom="true"
         android:layout_margin="10dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/buttonnav_rounded"
+        android:padding="1dp"
         app:itemIconTint="@color/bottom_nav_icon_colors"
-        app:itemTextColor="@color/bottom_nav_icon_colors"/>
+        app:itemTextColor="@color/bottom_nav_icon_colors"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_menu" />
 
 </RelativeLayout>
