@@ -22,7 +22,7 @@
             android:name=".ui.splash_screen.SplashScreenActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.element.Activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
