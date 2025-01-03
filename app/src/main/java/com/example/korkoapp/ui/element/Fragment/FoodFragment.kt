@@ -1,6 +1,8 @@
 package com.example.korkoapp.ui.element.Fragment
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -30,6 +32,9 @@ class FoodFragment : Fragment() {
     private lateinit var dishAdapter: DishAdapter
     private lateinit var dessertAdapter: DessertAdapter
     private lateinit var soupAdapter: SoupAdapter
+    private val handler = Handler(Looper.getMainLooper())
+    private var runnable: Runnable? = null
+    private var currentIndex = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -73,6 +78,7 @@ class FoodFragment : Fragment() {
                 State.SUCCESS -> {
                     Log.d("FoodFragment", "Data loaded successfully: ${dataState.data}")
                     bannerAdapter.submitList(dataState.data)
+                    startAutoScroll()
                 }
                 State.ERROR -> {
                     Log.e("FoodFragment", "Error loading data: ${dataState.errorMessage}")
@@ -120,5 +126,21 @@ class FoodFragment : Fragment() {
         viewModelDessert.loadDataDessert()
         viewModelSoup.loadDataSoup()
 
+    }
+
+    private fun startAutoScroll() {
+        runnable = Runnable {
+            if (currentIndex == bannerAdapter.itemCount) {
+                currentIndex = 0
+            }
+            binding.recycleViewBanner.smoothScrollToPosition(currentIndex++)
+            handler.postDelayed(runnable!!, 3000) // Change delay as needed
+        }
+        handler.postDelayed(runnable!!, 3000) // Initial delay
+    } // Function for auto scrolling
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        runnable?.let { handler.removeCallbacks(it) }
     }
 }
